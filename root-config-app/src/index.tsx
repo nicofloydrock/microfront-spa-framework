@@ -1,8 +1,8 @@
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { LifeCycles, registerApplication, start } from "single-spa";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,7 +11,22 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+registerApplication({
+  name: "app-angular",
+  app: (): Promise<LifeCycles> => (window as any).System.import("http://localhost:4200/main.js"),
+  activeWhen: "/angular"
+});
+
+registerApplication({
+  name: "app-productos",
+  app: (): Promise<LifeCycles> => (window as any).System.import("@single-spa-test/app-productos"),
+  activeWhen: "/productos"
+});
+
+registerApplication({
+  name: "app-ventas",
+  app: (): Promise<LifeCycles> => (window as any).System.import("@single-spa-test/app-ventas"),
+  activeWhen: "/ventas"
+});
+
+start();
