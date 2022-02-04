@@ -4,10 +4,9 @@ import {
   DesktopOutlined,
   PieChartOutlined,
   FileOutlined,
-  TeamOutlined,
-  UserOutlined,
 } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { navigateToUrl } from 'single-spa';
 
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -16,6 +15,16 @@ const { SubMenu } = Menu;
 
 
 function NavMenu() {
+
+
+    const [selectedItem, setSelectedItem] = useState<string>("none");
+
+    const handleClick = (url: string , selectedItem:string): void => {
+        setSelectedItem(url.split("/")[1]);
+        navigateToUrl(url);
+    }
+
+    
   const [collapsed, setState] = useState(false);
 
   const  onCollapse = (collapsed:boolean) => {
@@ -28,13 +37,17 @@ function NavMenu() {
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1" icon={<PieChartOutlined />}>
+            <Menu.Item  onClick={() => handleClick('/' , 'home')} 
+            
+                    key="1" icon={<PieChartOutlined />}>
               MICROFRONT HAZE
             </Menu.Item>
-            <Menu.Item key="2" icon={<DesktopOutlined />}>
+            <Menu.Item onClick={() => handleClick('/productos' , 'productos')} 
+                    key="2" icon={<DesktopOutlined />}>
               Productos
             </Menu.Item>
-            <Menu.Item key="9" icon={<FileOutlined />}>
+            <Menu.Item onClick={() => handleClick('/ventas' , 'ventas')} 
+                    key="9" icon={<FileOutlined />}>
               Ventas
             </Menu.Item>
           </Menu>
@@ -53,7 +66,7 @@ function NavMenu() {
 
 
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+          <Footer style={{ textAlign: 'center' }}>Nico Rivera MicroFront AntdReact</Footer>
         </Layout>
       </Layout>
   );
