@@ -23,4 +23,10 @@ registerApplication({
   activeWhen: "/productos"
 });
 
+registerApplication({
+  name: "app-ventas",
+  app: (): Promise<LifeCycles> => (window as any).System.import("@single-spa-test/app-ventas"),
+  activeWhen: "/ventas"
+});
+
 start();

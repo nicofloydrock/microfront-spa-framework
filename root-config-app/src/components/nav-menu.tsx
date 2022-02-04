@@ -56,8 +56,8 @@ function NavMenu() {
           <Header className="site-layout-background" style={{ padding: 0 }} />
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>XXX</Breadcrumb.Item>
-              <Breadcrumb.Item>JJJJ</Breadcrumb.Item>
+              <Breadcrumb.Item>Back Office</Breadcrumb.Item>
+              <Breadcrumb.Item>{selectedItem}</Breadcrumb.Item>
             </Breadcrumb>
             
 
