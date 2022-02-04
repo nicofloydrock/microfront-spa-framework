@@ -11,10 +11,13 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+
+
+
 registerApplication({
-  name: "app-angular",
-  app: (): Promise<LifeCycles> => (window as any).System.import("http://localhost:4200/main.js"),
-  activeWhen: "/angular"
+  name: "app-home",
+  app: (): Promise<LifeCycles> => (window as any).System.import("@single-spa-test/app-home"),
+  activeWhen: "/home"
 });
 
 registerApplication({

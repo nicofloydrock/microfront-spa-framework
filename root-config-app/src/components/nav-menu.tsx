@@ -37,7 +37,7 @@ function NavMenu() {
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item  onClick={() => handleClick('/' , 'home')} 
+            <Menu.Item  onClick={() => handleClick('/home' , 'home')} 
             
                     key="1" icon={<PieChartOutlined />}>
               MICROFRONT HAZE
@@ -63,6 +63,8 @@ function NavMenu() {
 
             <div id="single-spa-application:app-productos"></div>
             <div id="single-spa-application:app-ventas"></div>
+            <div id="single-spa-application:app-home"></div>
+
 
 
           </Content>
