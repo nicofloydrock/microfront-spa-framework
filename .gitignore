@@ -41,6 +41,14 @@ build/Release
 node_modules/
 jspm_packages/
 
+
+# all microfront clone into this repo
+mf-ventas/
+mf-productos/
+mf-home/
+
+
+
 # TypeScript v1 declaration files
 typings/
 
