@@ -18,6 +18,15 @@ ReactDOM.render(
 );
 
 
+registerApplication({
+  name: "app-login",
+  app: (): Promise<LifeCycles> => (window as any).System.import("@single-spa-test/app-login"),
+  activeWhen: "/login",
+  customProps: {
+    authToken: token()
+  },
+});
+
 
 
 registerApplication({

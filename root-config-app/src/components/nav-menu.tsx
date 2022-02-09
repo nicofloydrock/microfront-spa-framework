@@ -64,6 +64,8 @@ function NavMenu() {
             <div id="single-spa-application:app-productos"></div>
             <div id="single-spa-application:app-ventas"></div>
             <div id="single-spa-application:app-home"></div>
+            <div id="single-spa-application:app-login"></div>
+
 
 
 
